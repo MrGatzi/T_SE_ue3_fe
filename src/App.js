@@ -14,7 +14,7 @@ export default function App() {
     const {enqueueSnackbar} = useSnackbar();
 
     const getNewData = () => {
-        const config = {headers: {'Content-Type': 'application/json'}};
+        const config = {headers: {'Content-Type': 'application/json', "Access-Control-Allow-Origin": "*"}};
 
         axios.get("/patient", config).then(
             result => {
