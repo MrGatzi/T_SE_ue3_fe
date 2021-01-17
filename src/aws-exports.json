@@ -1,0 +1,18 @@
+{
+  "userPoolRegion": "eu-central-1",
+  "userPoolId": "eu-central-1_4cjXekIbr",
+  "userPoolWebClientId": "4hu5e747hsoa3djebroq73lh7d",
+  "identityPoolID": "ap-southeast-2:xxxx-xxxx-xxxx-xxxx",
+  "endpoints": [
+    {
+      "name": "api-one",
+      "endpoint": "https://api-one.example.com",
+      "region": "ap-southeast-2"
+    },
+    {
+      "name": "api-two",
+      "endpoint": "https://api-two.example.com",
+      "region": "us-east-1"
+    }
+  ]
+}

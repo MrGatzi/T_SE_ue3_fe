@@ -5,6 +5,8 @@ import NewDataTable from "./components/NewDataTable";
 import {SnackbarProvider, useSnackbar} from 'notistack';
 import {DataContext} from "./context/data";
 import axios from "./utils/axios";
+import {Auth} from "aws-amplify";
+
 
 export default function App() {
 
@@ -25,17 +27,21 @@ export default function App() {
 
     }
 
-    useEffect(() => {
+    useEffect(async () => {
+        await Auth.currentAuthenticatedUser().then(u => {
+            let authToken = "Bearer " + u.getSignInUserSession().getIdToken().getJwtToken();
+            axios.defaults.headers.common['Authorization'] = authToken;
+        })
         getNewData();
     }, []);
 
     return (
         <div>
 
-                <DataContext.Provider value={{data, getPatientData: getNewData}}>
-                    <NewDataTable></NewDataTable>
-                    <DataTable></DataTable>
-                </DataContext.Provider>
+            <DataContext.Provider value={{data, getPatientData: getNewData}}>
+                <NewDataTable></NewDataTable>
+                <DataTable></DataTable>
+            </DataContext.Provider>
 
         </div>
     );
