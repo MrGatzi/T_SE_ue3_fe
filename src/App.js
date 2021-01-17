@@ -14,8 +14,8 @@ export default function App() {
     const {enqueueSnackbar} = useSnackbar();
 
     const getNewData = () => {
-        const configu = {headers: {'Content-Type': 'application/json', "Access-Control-Allow-Origin": "*"}};
-        axios.get("/patient", configu).then(
+        const crosA = {headers: {'Content-Type': 'application/json', "Access-Control-Allow-Origin": "*"}};
+        axios.get("/patient", crosA).then(
             result => {
                 if (result.status === 200) {
                     setData(result.data);
